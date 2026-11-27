@@ -6,6 +6,7 @@
 <title>Do We Have a Sixth Sense?</title>
 <link rel="stylesheet" href="assets/css/fonts.css">
 <link rel="stylesheet" href="assets/css/deck.css">
+<link rel="stylesheet" href="assets/css/intro.css">
 </head>
 <body data-phase="mystic" data-slide="1">
 
@@ -566,6 +567,46 @@
   <div id="grain" aria-hidden="true"></div>
   <div id="vignette" aria-hidden="true"></div>
   <div id="hud" aria-hidden="true"><span id="step-dots"></span><span id="slide-num">01 / 15</span><span id="motion-flag">reduced motion</span></div>
+  <!-- ============ 0. INTRO · Nativo Estudio (sponsor splash shown before slide 1; not counted in the deck) ============ -->
+  <section id="nv-intro" aria-label="Desarrollado por Nativo Estudio">
+    <canvas class="nv-sky" width="1920" height="1080" aria-hidden="true"></canvas>
+    <div class="nv-aura" aria-hidden="true"></div>
+    <div class="nv-vignette" aria-hidden="true"></div>
+
+    <div class="nv-ticker nv-in-down" aria-hidden="true"><div class="nv-track"></div></div>
+
+    <div class="nv-center">
+      <p class="nv-badge nv-in" style="--d:.35s"><i class="nv-dot"></i>Presentación desarrollada por</p>
+
+      <div class="nv-logo" role="img" aria-label="Nativo">
+        <img class="nv-word" src="assets/img/nativo-word.png" alt="" draggable="false">
+        <img class="nv-cursor" src="assets/img/nativo-cursor.png" alt="" draggable="false">
+        <span class="nv-shine" aria-hidden="true"></span>
+        <span class="nv-flash" aria-hidden="true"></span>
+        <span class="nv-ripple" aria-hidden="true"></span>
+        <span class="nv-ripple r2" aria-hidden="true"></span>
+        <span class="nv-ripple r3" aria-hidden="true"></span>
+      </div>
+      <p class="nv-studio">Estudio Web</p>
+
+      <h2 class="nv-headline nv-in" style="--d:2.25s">Desarrollamos <span class="nv-type"><span class="nv-typed">páginas web</span><i class="nv-caret"></i></span></h2>
+
+      <ul class="nv-services">
+        <li class="nv-in" style="--d:2.55s"><svg viewBox="0 0 24 24"><rect x="2.5" y="4" width="19" height="16" rx="2"/><path d="M2.5 8.5h19"/><circle cx="5.6" cy="6.25" r=".6"/><circle cx="7.9" cy="6.25" r=".6"/><path d="M6.5 13h7M6.5 16h4.5"/></svg><span>Páginas web</span></li>
+        <li class="nv-in" style="--d:2.63s"><svg viewBox="0 0 24 24"><path d="M5 8h14l-1.2 12.2a1 1 0 0 1-1 .8H7.2a1 1 0 0 1-1-.8z"/><path d="M9 10.5V6.8a3 3 0 0 1 6 0v3.7"/></svg><span>Tiendas online</span></li>
+        <li class="nv-in" style="--d:2.71s"><svg viewBox="0 0 24 24"><path d="M8.5 7 3.5 12l5 5M15.5 7l5 5-5 5M13.4 4.5l-2.8 15"/></svg><span>Sistemas a medida</span></li>
+        <li class="nv-in" style="--d:2.79s"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><path d="M14 14h3v3h-3zM20 14v.01M20 20h-3M14 20v.01M17 17h3v3"/></svg><span>Menús digitales</span></li>
+        <li class="nv-in" style="--d:2.87s"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7.5" height="7.5" rx="1.5"/><rect x="13.5" y="3" width="7.5" height="7.5" rx="1.5"/><rect x="3" y="13.5" width="7.5" height="7.5" rx="1.5"/><rect x="13.5" y="13.5" width="7.5" height="7.5" rx="1.5"/></svg><span>Catálogos online</span></li>
+      </ul>
+    </div>
+
+    <div class="nv-foot nv-in" style="--d:3.1s">
+      <span><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.6 2.6 3.8 5.6 3.8 9s-1.2 6.4-3.8 9c-2.6-2.6-3.8-5.6-3.8-9S9.4 5.6 12 3z"/></svg>nativoestudioweb.com</span>
+      <i class="nv-sep"></i>
+      <span><svg viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r=".7"/></svg>@nativoestudioweb</span>
+    </div>
+  </section>
+
   <div id="blackout" aria-hidden="true"></div>
 </div>
 </div>
@@ -584,6 +625,7 @@
     <dt>←  ↑  PageUp  Backspace</dt><dd>Previous step</dd>
     <dt>Shift + → / ←</dt><dd>Jump a whole slide</dd>
     <dt>Home / End</dt><dd>First / last slide</dd>
+    <dt>← on slide 1</dt><dd>Back to the Nativo Estudio intro</dd>
     <dt>number + Enter</dt><dd>Go to slide</dd>
     <dt>F  (or F5)</dt><dd>Fullscreen</dd>
     <dt>S</dt><dd>Presenter view (script, next slide, timer)</dd>
@@ -597,6 +639,7 @@
 <script src="assets/js/notes.js"></script>
 <script src="assets/js/fx.js"></script>
 <script src="assets/js/deck.js"></script>
+<script src="assets/js/intro.js"></script>
 <script src="assets/js/slides.js"></script>
 </body>
 </html>

@@ -66,6 +66,7 @@
   /* ---------- navigation ----------
      how: 'fwd' = animated entrance; 'back' / 'jump' = show instantly in final state for that step */
   function goTo(i, st, how, force) {
+    if (window.Intro && Intro.active) Intro.hide(true);
     i = Math.max(0, Math.min(N - 1, i));
     st = Math.max(0, Math.min(Deck.maxStep(i), st));
     const prevI = Deck.cur, prevStep = Deck.step;
@@ -107,11 +108,20 @@
   }
   Deck.goTo = goTo;
 
+  /* Nativo intro splash (assets/js/intro.js): sits "before" slide 1 */
+  const hasIntro = () => !!window.Intro && !PREVIEW;
+  function leaveIntro() { Intro.hide(false, () => goTo(0, 0, 'fwd', true)); }
+  function enterIntro() { Intro.show(); }
+  Deck.showIntro = enterIntro;
+
   function next() {
+    if (hasIntro() && Intro.active) return leaveIntro();
     if (Deck.step < Deck.maxStep(Deck.cur)) goTo(Deck.cur, Deck.step + 1, 'fwd');
     else if (Deck.cur < N - 1) goTo(Deck.cur + 1, 0, 'fwd');
   }
   function prev() {
+    if (hasIntro() && Intro.active) return;
+    if (hasIntro() && Deck.cur === 0 && Deck.step === 0) return enterIntro();
     if (Deck.step > 0) goTo(Deck.cur, Deck.step - 1, 'back');
     else if (Deck.cur > 0) goTo(Deck.cur - 1, Deck.maxStep(Deck.cur - 1), 'back');
   }
@@ -359,7 +369,8 @@ footer{padding:8px 20px;border-top:1px solid #2A3150;color:#7D8AAA;font:13px Con
     makeGrain();
     makeMarble();
     const [si, ss] = startAt();
-    const go = () => goTo(si, ss, (si === 0 && ss === 0) ? 'fwd' : 'jump', true);
+    const intro = hasIntro() && (location.hash === '' || location.hash === '#' || location.hash === '#0');
+    const go = intro ? () => Intro.show() : () => goTo(si, ss, (si === 0 && ss === 0) ? 'fwd' : 'jump', true);
     const fontsReady = document.fonts && document.fonts.ready ? document.fonts.ready : Promise.resolve();
     Promise.race([fontsReady, new Promise(r => setTimeout(r, 1500))]).then(() => requestAnimationFrame(go));
 
