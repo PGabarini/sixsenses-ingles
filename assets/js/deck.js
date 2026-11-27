@@ -121,6 +121,10 @@
   const pad = n => String(n).padStart(2, '0');
   function updateHud() {
     document.getElementById('slide-num').textContent = `${pad(Deck.cur + 1)} / ${pad(N)}`;
+    // sub-slide indicator: one dot per click step inside this slide
+    const total = Deck.maxStep(Deck.cur) + 1;
+    document.getElementById('step-dots').innerHTML = Array.from({ length: total }, (_, k) =>
+      `<i class="${k < Deck.step ? 'done' : (k === Deck.step ? 'cur' : '')}"></i>`).join('');
     if (!PREVIEW) {
       try { history.replaceState(null, '', '#' + (Deck.cur + 1) + '.' + Deck.step); } catch (e) {}
       renderNotes();
