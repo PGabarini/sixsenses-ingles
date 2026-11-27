@@ -1,0 +1,602 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Do We Have a Sixth Sense?</title>
+<link rel="stylesheet" href="assets/css/fonts.css">
+<link rel="stylesheet" href="assets/css/deck.css">
+</head>
+<body data-phase="mystic" data-slide="1">
+
+<!-- Reusable line icons (drawn by hand, no external images) -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-eye" viewBox="0 0 100 100">
+      <path pathLength="1" d="M8 50 Q50 12 92 50 Q50 88 8 50 Z"/>
+      <circle pathLength="1" cx="50" cy="50" r="15"/>
+      <circle cx="50" cy="50" r="5" class="ifill"/>
+    </symbol>
+    <symbol id="i-ear" viewBox="0 0 100 100">
+      <path pathLength="1" d="M66 36 C66 20 55 10 43 10 C28 10 20 22 20 36 C20 50 30 54 34 63 C38 72 33 81 42 87 C51 93 62 86 62 77"/>
+      <path pathLength="1" d="M34 38 C34 28 46 25 51 32 C56 39 47 44 45 51 C44 56 48 58 50 60"/>
+    </symbol>
+    <symbol id="i-nose" viewBox="0 0 100 100">
+      <path pathLength="1" d="M44 14 C44 38 37 50 31 60 C26 70 33 79 43 75"/>
+      <path pathLength="1" d="M56 14 C56 38 63 50 69 60 C74 70 67 79 57 75"/>
+      <path pathLength="1" d="M43 75 C46 81 54 81 57 75"/>
+    </symbol>
+    <symbol id="i-mouth" viewBox="0 0 100 100">
+      <path pathLength="1" d="M10 48 Q28 28 50 38 Q72 28 90 48 Q72 74 50 76 Q28 74 10 48 Z"/>
+      <path pathLength="1" d="M10 48 Q50 58 90 48"/>
+      <path pathLength="1" d="M38 56 Q50 72 62 56"/>
+    </symbol>
+    <symbol id="i-touch" viewBox="0 0 100 100">
+      <path pathLength="1" d="M40 94 V50 C40 40 54 40 54 50 V94"/>
+      <path pathLength="1" d="M30 34 A20 20 0 0 1 64 34"/>
+      <path pathLength="1" d="M22 24 A30 30 0 0 1 72 24"/>
+    </symbol>
+    <radialGradient id="g-glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0" stop-color="#FFF4D6" stop-opacity="1"/>
+      <stop offset=".35" stop-color="#F3C969" stop-opacity=".75"/>
+      <stop offset="1" stop-color="#D9A441" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="g-ghost" cx="50%" cy="50%" r="50%">
+      <stop offset="0" stop-color="#FFFFFF" stop-opacity=".95"/>
+      <stop offset=".4" stop-color="#BFD3F2" stop-opacity=".55"/>
+      <stop offset="1" stop-color="#BFD3F2" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+</svg>
+
+<div id="viewport">
+<div id="stage">
+
+  <!-- ===== Background layers ===== -->
+  <div id="bg" aria-hidden="true">
+    <div class="bg-layer bg-night"></div>
+    <div class="bg-layer bg-fog">
+      <div class="fog f1"></div><div class="fog f2"></div><div class="fog f3"></div><div class="fog f4"></div>
+      <div class="fog ghostfog"></div>
+      <div class="mist-floor"></div>
+    </div>
+    <div class="bg-layer bg-chart">
+      <svg viewBox="0 0 1920 1080" class="chart-grid">
+        <g class="cg-lines"></g>
+      </svg>
+    </div>
+    <div class="bg-layer bg-science">
+      <div class="sci-grid"></div>
+      <div class="sci-grid fine"></div>
+      <div class="sweep"></div>
+    </div>
+    <div class="bg-layer bg-gold"><div class="gold-rays"></div></div>
+  </div>
+
+  <canvas id="fx" width="1920" height="1080" aria-hidden="true"></canvas>
+
+  <main id="slides">
+
+    <!-- ============ 1. COVER ============ -->
+    <section class="slide s1" data-steps="0" data-phase="mystic" aria-label="Title">
+      <div class="eye-wrap">
+        <svg class="sixth-eye" viewBox="-260 -150 520 300" aria-hidden="true">
+          <circle class="eye-halo" r="140" fill="url(#g-glow)"/>
+          <g class="eye-rays"></g>
+          <g class="eye-lids">
+            <path class="eye-outline" d="M-200 0 Q0 -130 200 0 Q0 130 -200 0 Z"/>
+            <path class="eye-outline in" d="M-160 0 Q0 -100 160 0 Q0 100 -160 0 Z"/>
+            <circle class="eye-iris" r="56"/>
+            <circle class="eye-iris2" r="40"/>
+            <circle class="eye-pupil" r="16"/>
+          </g>
+          <circle class="eye-spark" r="7"/>
+        </svg>
+      </div>
+      <p class="eyebrow cover-eyebrow">An English presentation</p>
+      <h1 class="cover-title" id="cover-title">
+        <span class="line l1">Do we have a</span>
+        <span class="line l2">sixth sense?</span>
+      </h1>
+      <p class="cover-sub">Love, intuition, ghosts… and the senses science forgot to count</p>
+      <p class="cover-name">Pablo David Gabarini</p>
+    </section>
+
+    <!-- ============ 2. FIVE SENSES ============ -->
+    <section class="slide s2" data-steps="1" data-phase="mystic" aria-label="Only five?">
+      <header class="s2-head">
+        <p class="eyebrow">What we learnt at school</p>
+        <h2>Five senses. <em>Only five?</em></h2>
+      </header>
+      <div class="cards">
+        <div class="card" style="--i:0"><svg class="icon"><use href="#i-eye"/></svg><span>Sight</span></div>
+        <div class="card" style="--i:1"><svg class="icon"><use href="#i-ear"/></svg><span>Hearing</span></div>
+        <div class="card" style="--i:2"><svg class="icon"><use href="#i-nose"/></svg><span>Smell</span></div>
+        <div class="card" style="--i:3"><svg class="icon"><use href="#i-mouth"/></svg><span>Taste</span></div>
+        <div class="card" style="--i:4"><svg class="icon"><use href="#i-touch"/></svg><span>Touch</span></div>
+        <div class="card qslot" id="qcard">
+          <div class="qcard" data-step="1">
+            <div class="qring"></div><div class="qring r2"></div>
+            <span class="qmark">?</span>
+          </div>
+        </div>
+      </div>
+      <p class="s2-aristotle">The list of five comes from <b>Aristotle</b>, around <b>350 BC</b>.</p>
+      <p class="s2-sixth" data-step="1">Throughout history, people have put forward a <em>“sixth sense”</em>.</p>
+    </section>
+
+    <!-- ============ 3. LOVE ============ -->
+    <section class="slide s3" data-steps="2" data-phase="mystic" aria-label="Love">
+      <div class="tapestry-wrap">
+        <svg class="tapestry" viewBox="0 0 720 860" aria-hidden="true">
+          <defs>
+            <linearGradient id="tpRed" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#8E2A2E"/>
+              <stop offset="1" stop-color="#5E161C"/>
+            </linearGradient>
+            <linearGradient id="tpBand" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#1D2D4F"/>
+              <stop offset="1" stop-color="#16213B"/>
+            </linearGradient>
+            <linearGradient id="wmGrad" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0" stop-color="#fff"/>
+              <stop offset=".85" stop-color="#fff"/>
+              <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+            </linearGradient>
+            <mask id="writeMask" maskUnits="userSpaceOnUse" x="0" y="0" width="720" height="860">
+              <rect class="wm" x="-900" y="560" width="900" height="260" fill="url(#wmGrad)"/>
+            </mask>
+            <path id="ribbonPath" d="M108 728 Q360 690 612 728"/>
+          </defs>
+          <!-- band + field -->
+          <rect class="tp-band" x="10" y="10" width="700" height="840" rx="6" fill="url(#tpBand)"/>
+          <rect class="tp-field" x="52" y="52" width="616" height="756" fill="url(#tpRed)"/>
+          <g class="tp-flowers"></g>
+          <!-- frame lines -->
+          <rect class="tp-line" pathLength="1" x="10" y="10" width="700" height="840" rx="6"/>
+          <rect class="tp-line" pathLength="1" x="52" y="52" width="616" height="756"/>
+          <rect class="tp-line thin" pathLength="1" x="20" y="20" width="680" height="820" rx="4"/>
+          <!-- woven vines (generated) -->
+          <g class="tp-vines"></g>
+          <!-- corner rosettes -->
+          <g class="tp-corners"></g>
+          <!-- arch -->
+          <path class="tp-arch" pathLength="1" d="M150 800 L150 430 Q150 262 360 172 Q570 262 570 430 L570 800"/>
+          <path class="tp-arch in" pathLength="1" d="M176 800 L176 436 Q176 288 360 204 Q544 288 544 436 L544 800"/>
+          <!-- six-lobed rosette: five senses + a mysterious sixth -->
+          <g class="tp-rosette" transform="translate(360 440)">
+            <g class="lobes"></g>
+            <circle class="ro-core" r="26"/>
+            <circle class="ro-ring" pathLength="1" r="118"/>
+          </g>
+          <!-- banner with the motto -->
+          <g class="tp-banner" data-step="1">
+            <path class="rb-tail l" d="M108 712 L58 700 L78 734 L60 768 L112 760 Z"/>
+            <path class="rb-tail r" d="M612 712 L662 700 L642 734 L660 768 L608 760 Z"/>
+            <path class="rb-body" d="M98 702 Q360 660 622 702 L622 770 Q360 728 98 770 Z"/>
+            <text class="motto" mask="url(#writeMask)"><textPath href="#ribbonPath" startOffset="50%" text-anchor="middle">À mon seul désir</textPath></text>
+          </g>
+        </svg>
+      </div>
+      <p class="tp-caption" data-step="1"><em>The Lady and the Unicorn</em>, c. 1500 · Musée de Cluny, Paris</p>
+
+      <div class="s3-text">
+        <p class="eyebrow">Candidate <span class="n">1</span></p>
+        <h2 class="big-title love-title">Love</h2>
+        <p class="lead" data-step="1">A 500-year-old idea: <b>five tapestries</b> for the five senses, and a mysterious <b>sixth</b>.</p>
+        <p class="translation" data-step="1">“To my only desire”, often read as love.</p>
+        <div class="science-card" data-step="2">
+          <p class="sc-label">What science says</p>
+          <div class="sc-combine" aria-hidden="true">
+            <svg class="icon sm"><use href="#i-eye"/></svg><span>+</span>
+            <svg class="icon sm"><use href="#i-ear"/></svg><span>+</span>
+            <svg class="icon sm"><use href="#i-nose"/></svg>
+          </div>
+          <p>The brain combines sight, sound and even smell to shape attraction. <b>No new sense needed.</b></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 4. INTUITION ============ -->
+    <section class="slide s4" data-steps="3" data-phase="mystic" aria-label="Intuition">
+      <div class="s4-head">
+        <p class="eyebrow">Candidate <span class="n">2</span></p>
+        <h2 class="big-title">Intuition</h2>
+        <p class="lead">The <em>“gut feeling”</em> that tells us what to do before we can explain why.</p>
+      </div>
+      <canvas class="ecg" width="1920" height="220" aria-hidden="true"></canvas>
+      <div class="subliminal" aria-hidden="true">gut feeling</div>
+      <ol class="facts">
+        <li data-step="1"><span class="num">1</span><p>Hidden emotional images led to <b>faster, more confident decisions</b><small>University of New South Wales</small></p></li>
+        <li data-step="2"><span class="num">2</span><p>Experienced traders’ gut feelings turned out to be <b>real signals from their bodies</b></p></li>
+      </ol>
+      <div class="science-card s4-card" data-step="3">
+        <p class="sc-label">What science says</p>
+        <p>Intuition is real, but it isn’t magic: it’s <b>the brain working too fast for us to notice.</b></p>
+      </div>
+    </section>
+
+    <!-- ============ 5. ESP ============ -->
+    <section class="slide s5" data-steps="3" data-phase="mystic" data-ghost="1" aria-label="Extrasensory perception">
+      <div class="s5-head">
+        <p class="eyebrow">Candidate <span class="n">3</span></p>
+        <h2 class="esp-title materialize">Extrasensory perception</h2>
+        <p class="lead materialize">Telepathy · premonitions · seeing ghosts</p>
+        <p class="movies materialize">the “sixth sense” of the movies</p>
+        <p class="celtic materialize" data-step="1">In Celtic tradition, the gift was called <em>“second sight”</em>.</p>
+      </div>
+      <svg class="minds" viewBox="0 0 1920 620" aria-hidden="true">
+        <defs>
+          <path id="headPath" d="M70 560 C70 470 40 440 40 360 C30 190 120 70 250 70 C360 70 425 140 430 235 L436 268 C442 292 452 306 470 340 C474 350 466 358 450 360 C452 374 454 384 448 392 C456 400 452 412 444 418 C446 436 440 456 416 462 C390 468 370 470 360 488 L356 560"/>
+        </defs>
+        <g class="head left" transform="translate(110 40)"><g class="float">
+          <use href="#headPath" class="head-glow"/>
+          <use href="#headPath" class="head-shape"/>
+          <circle class="mind-glow" cx="250" cy="250" r="120" fill="url(#g-ghost)"/>
+          <circle class="mind-core" cx="250" cy="250" r="12"/>
+        </g></g>
+        <g class="head right" transform="translate(1810 40) scale(-1 1)"><g class="float f2">
+          <use href="#headPath" class="head-glow"/>
+          <use href="#headPath" class="head-shape"/>
+          <circle class="mind-glow" cx="250" cy="250" r="120" fill="url(#g-ghost)"/>
+          <circle class="mind-core" cx="250" cy="250" r="12"/>
+        </g></g>
+        <g class="wave" data-step="2">
+          <path class="wave-glow"/>
+          <path class="wave-line"/>
+          <path class="wave-glow r"/>
+          <path class="wave-line r"/>
+          <g class="sparks"></g>
+        </g>
+      </svg>
+      <div class="ganzfeld">
+        <p class="gz1 materialize" data-step="2">The <b>Ganzfeld</b> telepathy experiments looked promising…</p>
+        <p class="gz2" data-step="3">…but other laboratories <b>couldn’t repeat the results.</b></p>
+      </div>
+    </section>
+
+    <!-- ============ 6. THE VERDICT ============ -->
+    <section class="slide s6" data-steps="1" data-phase="verdict" aria-label="The verdict">
+      <div class="shock" aria-hidden="true"></div><div class="shock s2b" aria-hidden="true"></div>
+      <p class="eyebrow">The verdict</p>
+      <ul class="candidates">
+        <li style="--i:0">Love</li><li style="--i:1">Intuition</li><li style="--i:2">ESP</li>
+      </ul>
+      <h2 class="verdict">None of them has enough evidence to be a separate sense.</h2>
+      <p class="aristotle-q" data-step="1">So was Aristotle right after all?</p>
+    </section>
+
+    <!-- ============ 7. BACK TO ARISTOTLE ============ -->
+    <section class="slide s7" data-steps="1" data-phase="science" aria-label="Back to Aristotle">
+      <div class="marble" aria-hidden="true"></div>
+      <div class="column-flutes" aria-hidden="true"></div>
+      <div class="s7-left">
+        <p class="eyebrow">Back to Aristotle</p>
+        <h2>One organ, <em>one sense</em></h2>
+        <ul class="organs">
+          <li style="--i:0"><svg class="icon"><use href="#i-eye"/></svg><span>Eyes</span></li>
+          <li style="--i:1" class="ear-organ"><svg class="icon"><use href="#i-ear"/></svg><span>Ears</span></li>
+          <li style="--i:2"><svg class="icon"><use href="#i-nose"/></svg><span>Nose</span></li>
+          <li style="--i:3"><svg class="icon"><use href="#i-mouth"/></svg><span>Tongue</span></li>
+          <li style="--i:4"><svg class="icon"><use href="#i-touch"/></svg><span>Skin</span></li>
+        </ul>
+        <p class="equals">= five senses, and <em>“no sixth sense”</em>.</p>
+      </div>
+      <svg class="callout" viewBox="0 0 1920 1080" aria-hidden="true" data-step="1">
+        <path class="callout-line" pathLength="1" d="M372 735 C372 900 900 930 1170 640"/>
+        <circle class="callout-dot" cx="372" cy="735" r="9"/>
+      </svg>
+      <div class="s7-right" data-step="1">
+        <p class="sc-label">The problem</p>
+        <svg class="inner-ear" viewBox="0 0 640 470" aria-hidden="true">
+          <g class="ie-grid"></g>
+          <!-- semicircular canals (balance) -->
+          <g class="canals">
+            <path class="tube-o" pathLength="1" d="M330 258 C250 210 250 70 345 52 C430 36 470 130 420 210"/>
+            <path class="tube-i" pathLength="1" d="M330 258 C250 210 250 70 345 52 C430 36 470 130 420 210"/>
+            <path class="tube-o" pathLength="1" d="M402 246 C470 250 560 210 548 140 C536 76 450 86 430 150"/>
+            <path class="tube-i" pathLength="1" d="M402 246 C470 250 560 210 548 140 C536 76 450 86 430 150"/>
+            <ellipse class="tube-o" pathLength="1" cx="420" cy="262" rx="120" ry="36"/>
+            <ellipse class="tube-i" pathLength="1" cx="420" cy="262" rx="120" ry="36"/>
+            <path class="fluid" pathLength="1" d="M330 258 C250 210 250 70 345 52 C430 36 470 130 420 210"/>
+            <path class="fluid f2" pathLength="1" d="M402 246 C470 250 560 210 548 140 C536 76 450 86 430 150"/>
+          </g>
+          <!-- vestibule -->
+          <ellipse class="vestibule" cx="358" cy="268" rx="62" ry="44"/>
+          <!-- cochlea spiral (generated) -->
+          <path class="cochlea-o" pathLength="1"/>
+          <path class="cochlea-i" pathLength="1"/>
+          <!-- label -->
+          <path class="ie-leader" pathLength="1" d="M520 120 L590 60 L640 60"/>
+          <text class="ie-label" x="636" y="44" text-anchor="end">balance organ</text>
+        </svg>
+        <p class="problem-text"><b>Some organs are hidden.</b> The balance organ inside the ear was only understood in the <span class="mono">early 1800s</span>.</p>
+      </div>
+      <p class="source">Source: Aristotle, <em>De Anima</em> (On the Soul), Book III</p>
+    </section>
+
+    <!-- ============ 8. 22–33 ============ -->
+    <section class="slide s8" data-steps="4" data-phase="science" aria-label="How many senses?">
+      <h2 class="s8-q">So how many senses do we have?</h2>
+      <div class="bignum" aria-label="22–33">
+        <span class="n1">5</span><span class="dash">–</span><span class="n2">33</span>
+      </div>
+      <div class="ruler" aria-hidden="true">
+        <div class="ticks"></div>
+        <div class="bracket b7" data-step="3"><span>≥ 7</span></div>
+        <div class="bracket brange" data-step="2"><span>?</span></div>
+        <div class="rlabels"><span style="--x:5">5</span><span style="--x:22">22</span><span style="--x:33">33</span></div>
+      </div>
+      <p class="spence" data-step="1">senses, according to neuroscientist <b>Charles Spence</b>, University of Oxford</p>
+      <div class="s8-cards">
+        <div class="mcard" data-step="2"><h3>No exact number</h3><p>Some say it depends on how you define a sense.</p></div>
+        <div class="mcard" data-step="3"><h3>At least seven</h3><p>is what most scientists agree on.</p></div>
+        <div class="mcard" data-step="4"><h3>Not mysterious</h3><p>Each one has real receptors in the body.</p></div>
+      </div>
+      <p class="source">Source: Charles Spence, Crossmodal Research Laboratory, University of Oxford</p>
+    </section>
+
+    <!-- ============ 9.1 PROPRIOCEPTION ============ -->
+    <section class="slide hs hs1" data-steps="3" data-phase="science" aria-label="Proprioception">
+      <div class="hs-text">
+        <p class="eyebrow">Forgotten sense <span class="n">1</span></p>
+        <h2 class="hs-title">Proprioception</h2>
+        <p class="lead">Knowing where your body is <b>without looking</b></p>
+        <ol class="hs-points">
+        <li data-step="1"><span class="num">1</span><p>You can touch your nose <b>with your eyes closed</b></p></li>
+        <li data-step="2"><span class="num">2</span><p>Named by <b>Sir Charles Sherrington</b><small>Nobel Prize in Physiology or Medicine, 1932</small></p></li>
+        <li data-step="3"><span class="num">3</span><p>Gymnasts and dancers depend on it <b>every second</b></p></li>
+        </ol>
+
+      </div>
+      <div class="scope hs-scope">
+        <div class="scope-frame" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+        <svg class="illo il1" viewBox="0 0 820 660" aria-hidden="true">
+          <g transform="translate(170 40) scale(.8)">
+            <use href="#headPath" class="body-line"/>
+            <path class="closed-eye" d="M372 228 Q392 240 410 228"/>
+            <path class="lash" d="M380 236 l-4 10 M392 239 l0 11 M404 236 l4 10"/>
+          </g>
+          <path class="neck-torso body-line" d="M226 488 C222 530 170 552 120 578 C96 592 86 620 84 660 M455 488 C458 520 500 544 548 556 C590 568 610 600 616 660"/>
+          <path class="traj" d="M0 0"/>
+          <g class="arm">
+            <path class="seg upper"/>
+            <path class="seg fore"/>
+            <circle class="joint sh" r="13"/>
+            <circle class="joint el" r="11"/>
+            <circle class="hand" r="20"/>
+            <path class="angle-arc"/>
+          </g>
+          <circle class="target" cx="0" cy="0" r="16"/>
+        </svg>
+      </div>
+      <div class="hs-track"><span class="lbl">Five senses we forgot to count</span><i class="cur">01</i><i class="">02</i><i class="">03</i><i class="">04</i><i class="">05</i></div>
+    </section>
+
+    <!-- ============ 9.2 BALANCE ============ -->
+    <section class="slide hs hs2" data-steps="3" data-phase="science" aria-label="Balance">
+      <div class="hs-text">
+        <p class="eyebrow">Forgotten sense <span class="n">2</span></p>
+        <h2 class="hs-title">Balance</h2>
+        <p class="lead">Also called the <b>vestibular sense</b></p>
+        <ol class="hs-points">
+        <li data-step="1"><span class="num">1</span><p>A tiny, <b>fluid-filled organ</b> in the inner ear</p></li>
+        <li data-step="2"><span class="num">2</span><p>It detects the <b>movement of our head</b> and the <b>pull of gravity</b></p></li>
+        <li data-step="3"><span class="num">3</span><p>We only notice it when something goes wrong — like feeling <b>seasick</b></p></li>
+        </ol>
+
+      </div>
+      <div class="scope hs-scope">
+        <div class="scope-frame" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+        <svg class="illo il2" viewBox="0 0 820 660" aria-hidden="true">
+          <line class="horizon" x1="40" y1="330" x2="780" y2="330"/>
+          <g class="level">
+            <rect class="lv-body" x="110" y="270" width="600" height="120" rx="22"/>
+            <rect class="lv-vial" x="250" y="300" width="320" height="60" rx="30"/>
+            <ellipse class="lv-bubble" cx="410" cy="330" rx="40" ry="20"/>
+            <line class="lv-mark" x1="380" y1="296" x2="380" y2="364"/>
+            <line class="lv-mark" x1="440" y1="296" x2="440" y2="364"/>
+            <circle class="lv-screw" cx="160" cy="330" r="12"/><circle class="lv-screw" cx="660" cy="330" r="12"/>
+          </g>
+          <path class="sea" d="M0 600 Q102 570 205 600 T410 600 T615 600 T820 600"/>
+          <g class="gravity">
+            <line x1="410" y1="430" x2="410" y2="560"/>
+            <path d="M392 540 L410 572 L428 540"/>
+          </g>
+          <path class="tilt-arc" d="M190 180 A300 300 0 0 1 630 180"/>
+          <path class="tilt-arrow" d="M612 160 L632 182 L604 190"/>
+        </svg>
+      </div>
+      <div class="hs-track"><span class="lbl">Five senses we forgot to count</span><i class="done">01</i><i class="cur">02</i><i class="">03</i><i class="">04</i><i class="">05</i></div>
+    </section>
+
+    <!-- ============ 9.3 INTEROCEPTION ============ -->
+    <section class="slide hs hs3" data-steps="2" data-phase="science" aria-label="Interoception">
+      <div class="hs-text">
+        <p class="eyebrow">Forgotten sense <span class="n">3</span></p>
+        <h2 class="hs-title">Interoception</h2>
+        <p class="lead">Feeling what’s happening <b>inside our body</b></p>
+        <ul class="hs-chips"><li>Heartbeat</li><li>Breathing</li><li>Hunger</li><li>Thirst</li></ul>
+        <ol class="hs-points">
+        <li data-step="1"><span class="num">1</span><p>People who are good at sensing their own heartbeat tend to be <b>more intuitive</b></p></li>
+        </ol>
+      <div class="hs-card" data-step="2">
+        <p class="sc-label">An interesting connection</p>
+        <p>Part of our <b>“intuition”</b> may actually come from this sense.</p>
+      </div>
+      </div>
+      <div class="scope hs-scope">
+        <div class="scope-frame" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+        <svg class="illo il3" viewBox="0 0 820 660" aria-hidden="true">
+          <circle class="breath b1" cx="410" cy="270" r="150"/>
+          <circle class="breath b2" cx="410" cy="270" r="150"/>
+          <g class="heart">
+            <path d="M410 360 C330 300 290 255 290 210 C290 170 320 145 352 145 C380 145 400 162 410 182 C420 162 440 145 468 145 C500 145 530 170 530 210 C530 255 490 300 410 360 Z"/>
+          </g>
+          <path class="ecg-base" pathLength="1" d="M20 520 H230 L250 500 L270 520 H300 L320 420 L345 600 L368 520 H420 L450 490 L480 520 H800"/>
+          <path class="ecg-trace" pathLength="1" d="M20 520 H230 L250 500 L270 520 H300 L320 420 L345 600 L368 520 H420 L450 490 L480 520 H800"/>
+        </svg>
+      </div>
+      <div class="hs-track"><span class="lbl">Five senses we forgot to count</span><i class="done">01</i><i class="done">02</i><i class="cur">03</i><i class="">04</i><i class="">05</i></div>
+    </section>
+
+    <!-- ============ 9.4 PAIN ============ -->
+    <section class="slide hs hs4" data-steps="3" data-phase="science" aria-label="Pain">
+      <div class="hs-text">
+        <p class="eyebrow">Forgotten sense <span class="n">4</span></p>
+        <h2 class="hs-title">Pain</h2>
+        <p class="lead">Nociception, a sense with <b>its own receptors</b></p>
+        <ol class="hs-points">
+        <li data-step="1"><span class="num">1</span><p>Not just a strong form of touch: <b>a separate sense</b></p></li>
+        <li data-step="2"><span class="num">2</span><p>Some people are born <b>unable to feel pain</b>, but feel pressure and temperature perfectly well<small>They often suffer serious injuries</small></p></li>
+        </ol>
+      <div class="hs-card" data-step="3">
+        <p class="sc-label">The key point</p>
+        <p>Pain may be unpleasant, but <b>it protects us.</b></p>
+      </div>
+      </div>
+      <div class="scope hs-scope">
+        <div class="scope-frame" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+        <svg class="illo il4" viewBox="0 0 820 660" aria-hidden="true">
+          <path class="skin" d="M40 200 C200 186 320 214 460 200 C600 186 700 206 780 196"/>
+          <path class="skin-layer" d="M40 232 C200 218 320 246 460 232 C600 218 700 238 780 228"/>
+          <path class="pin" d="M180 40 L194 40 L192 176 L187 198 L182 176 Z"/>
+          <g class="nerve">
+            <path pathLength="1" d="M187 214 C190 300 260 360 380 380 C520 404 600 470 720 560"/>
+            <path pathLength="1" d="M187 214 C160 250 130 262 110 300"/>
+            <path pathLength="1" d="M187 214 C220 240 250 250 290 248"/>
+            <path pathLength="1" d="M210 300 C180 330 170 360 172 400"/>
+          </g>
+          <path class="impulse" pathLength="1" d="M187 214 C190 300 260 360 380 380 C520 404 600 470 720 560"/>
+          <circle class="nerve-end" cx="720" cy="560" r="28"/>
+          <g class="spark" transform="translate(187 205)"></g>
+        </svg>
+      </div>
+      <div class="hs-track"><span class="lbl">Five senses we forgot to count</span><i class="done">01</i><i class="done">02</i><i class="done">03</i><i class="cur">04</i><i class="">05</i></div>
+    </section>
+
+    <!-- ============ 9.5 TEMPERATURE ============ -->
+    <section class="slide hs hs5" data-steps="1" data-phase="science" aria-label="Temperature">
+      <div class="hs-text">
+        <p class="eyebrow">Forgotten sense <span class="n">5</span></p>
+        <h2 class="hs-title">Temperature</h2>
+        <p class="lead">Thermoception: sensing <b>heat and cold</b></p>
+        <ol class="hs-points">
+        <li data-step="1"><span class="num">1</span><p>It makes you pull your hand away from a hot pan <b>before you’ve even had time to think</b></p></li>
+        </ol>
+
+      </div>
+      <div class="scope hs-scope">
+        <div class="scope-frame" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+        <svg class="illo il5" data-only="0" viewBox="0 0 820 660" aria-hidden="true">
+          <defs>
+            <linearGradient id="heatG" x1="0" y1="1" x2="0" y2="0">
+              <stop offset="0" stop-color="#E0662A" stop-opacity=".9"/>
+              <stop offset="1" stop-color="#F3C969" stop-opacity="0"/>
+            </linearGradient>
+          </defs>
+          <rect class="half hot" x="-300" y="-300" width="710" height="1260"/>
+          <rect class="half cold" x="410" y="-300" width="710" height="1260"/>
+          <g class="shimmer"></g>
+          <g class="frost" transform="translate(615 300)"></g>
+          <g class="thermo">
+            <rect class="th-tube" x="390" y="110" width="40" height="400" rx="20"/>
+            <circle class="th-bulb" cx="410" cy="540" r="42"/>
+            <rect class="th-fill" x="400" y="140" width="20" height="400" rx="10"/>
+            <g class="th-ticks"></g>
+          </g>
+          <text class="tlabel hot" x="205" y="620" text-anchor="middle">heat</text>
+          <text class="tlabel cold" x="615" y="620" text-anchor="middle">cold</text>
+        </svg>
+        <svg class="illo il6" data-only="1" viewBox="0 0 820 660" aria-hidden="true">
+          <rect class="half hot" x="-300" y="-300" width="1420" height="1260"/>
+          <g class="pan-heat"></g>
+          <g class="burner"><path d="M190 560 l16 -34 l16 34 Z M250 560 l16 -42 l16 42 Z M310 560 l16 -34 l16 34 Z M370 560 l16 -42 l16 42 Z M430 560 l16 -34 l16 34 Z"/></g>
+          <line class="stove" x1="120" y1="566" x2="560" y2="566"/>
+          <path class="pan" d="M150 470 H530 L510 530 Q505 540 492 540 H188 Q175 540 170 530 Z"/>
+          <rect class="pan-handle" x="526" y="474" width="250" height="26" rx="13"/>
+          <g class="hand-wrap">
+            <g class="hand">
+              <rect class="hand-palm" x="616" y="250" width="118" height="110" rx="34"/>
+              <rect class="finger" x="618" y="330" width="26" height="92" rx="13"/>
+              <rect class="finger" x="648" y="336" width="26" height="100" rx="13"/>
+              <rect class="finger" x="678" y="332" width="26" height="96" rx="13"/>
+              <rect class="finger" x="708" y="326" width="24" height="80" rx="12"/>
+              <rect class="finger thumb" x="590" y="282" width="26" height="80" rx="13" transform="rotate(28 603 322)"/>
+              <rect class="cuff" x="622" y="180" width="106" height="78" rx="10"/>
+            </g>
+            <g class="whoosh"><path d="M600 200 v-60 M760 200 v-60 M680 170 v-70"/></g>
+          </g>
+          <path class="reflex-arrow" d="M800 420 C800 300 800 220 800 120"/>
+        </svg>
+      </div>
+      <div class="hs-track"><span class="lbl">Five senses we forgot to count</span><i class="done">01</i><i class="done">02</i><i class="done">03</i><i class="done">04</i><i class="cur">05</i></div>
+    </section>
+
+    <!-- ============ 10. CONCLUSION ============ -->
+    <section class="slide s10" data-steps="3" data-phase="night" aria-label="Conclusion">
+      <header class="s10-head">
+        <p class="eyebrow">Conclusion</p>
+        <h2>No magical sixth sense</h2>
+      </header>
+      <svg class="constellations" viewBox="0 0 1920 1080" aria-hidden="true">
+        <g class="const c1" data-step="1"></g>
+        <g class="const c2" data-step="2"></g>
+        <path class="bridge" data-step="2" pathLength="1" d="M720 600 Q960 520 1200 560"/>
+      </svg>
+      <div class="group-label g1" data-step="1">The brain combining our senses</div>
+      <div class="group-label g2" data-step="2">Real senses hidden inside us</div>
+      <p class="final-line" data-step="3"><span>Aristotle gave us five senses.</span> <span class="gold">Science has given us more than twenty.</span></p>
+    </section>
+
+    <!-- ============ 11. THANK YOU ============ -->
+    <section class="slide s11" data-steps="0" data-phase="night" aria-label="Thank you">
+      <h2 class="thanks" id="thanks-title"><span class="line">Thank you</span></h2>
+      <svg class="flourish" viewBox="0 0 1200 120" aria-hidden="true">
+        <path pathLength="1" d="M600 60 C540 10 470 10 440 50 C420 76 446 96 466 82 C486 68 470 44 450 50 M600 60 C660 10 730 10 760 50 C780 76 754 96 734 82 C714 68 730 44 750 50"/>
+        <path pathLength="1" d="M440 60 H80 M760 60 H1120"/>
+        <circle cx="600" cy="60" r="9" class="fl-dot"/>
+        <circle cx="66" cy="60" r="5" class="fl-dot"/><circle cx="1134" cy="60" r="5" class="fl-dot"/>
+      </svg>
+      <p class="questions">Any questions?</p>
+    </section>
+
+  </main>
+
+  <div id="grain" aria-hidden="true"></div>
+  <div id="vignette" aria-hidden="true"></div>
+  <div id="hud" aria-hidden="true"><span id="slide-num">01 / 11</span><span id="motion-flag">reduced motion</span></div>
+  <div id="blackout" aria-hidden="true"></div>
+</div>
+</div>
+
+<!-- Notes overlay (N) -->
+<aside id="notes-overlay" aria-live="polite">
+  <div class="no-head"><span class="no-title"></span><span class="no-timer">00:00</span></div>
+  <div class="no-body"></div>
+</aside>
+
+<!-- Help overlay (H or ?) -->
+<aside id="help-overlay">
+  <h3>Keyboard</h3>
+  <dl>
+    <dt>→  ↓  Space  PageDown  Enter  click</dt><dd>Next step / next slide</dd>
+    <dt>←  ↑  PageUp  Backspace</dt><dd>Previous step</dd>
+    <dt>Shift + → / ←</dt><dd>Jump a whole slide</dd>
+    <dt>Home / End</dt><dd>First / last slide</dd>
+    <dt>number + Enter</dt><dd>Go to slide</dd>
+    <dt>F  (or F5)</dt><dd>Fullscreen</dd>
+    <dt>S</dt><dd>Presenter view (script, next slide, timer)</dd>
+    <dt>N</dt><dd>Notes overlay</dd>
+    <dt>M</dt><dd>Reduced motion on/off</dd>
+    <dt>B  or  .</dt><dd>Black screen</dd>
+    <dt>H  or  ?</dt><dd>This help</dd>
+  </dl>
+</aside>
+
+<script src="assets/js/notes.js"></script>
+<script src="assets/js/fx.js"></script>
+<script src="assets/js/deck.js"></script>
+<script src="assets/js/slides.js"></script>
+</body>
+</html>
